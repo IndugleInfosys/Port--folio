@@ -1411,3 +1411,13 @@
         padding: 1rem;
       }
     }
+
+
+     /*========== Media Queries ==========*/
+     .result-content{
+      max-width: 100%;
+      height: max-content;
+      background-color: blue;
+     }
+
+    
