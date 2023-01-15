@@ -75,25 +75,25 @@ const sections = document.querySelectorAll("section[id]");
 
 
 // add an event listener listening  for scrolling
-window.addEventListener("scroll", navHighlighter); 
+window.addEventListener("scroll", navHighlighter);
 
 
-function navHighlighter(){
+function navHighlighter() {
   //get current scroll position
   let scrollY = window.pageYOffset;
   //Now we loop through sections to get height, 
   sections.forEach(current => {
     const sectionHeight = current.offsetHeight;
     const sectionTop = current.offsetTop - 58,
-          sectionId = current.getAttribute("id");
+      sectionId = current.getAttribute("id");
 
     /* If our current scroll position enters the space where current section on screen is, add .active class to 
     corresponding navigation link, else remove it
     -to know which link needs an active class, we use  sectionId we are getting while looping  through  sections as an selection */
-    if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
-      document.querySelector('.nav-menu a[href*='+ sectionId + ']').classList.add("active-link");
+    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+      document.querySelector('.nav-menu a[href*=' + sectionId + ']').classList.add("active-link");
     }
-    else{
+    else {
       document.querySelector('.nav-menu a[href*=' + sectionId + ']').classList.remove("active-link");
     }
   })
@@ -102,39 +102,38 @@ function navHighlighter(){
 
 /*=============== PORTFOLIO ITEM FILTER ===============*/
 const filterContainer = document.querySelector(".portfolio-filter-inner"),
-      filterBtns = filterContainer.children,
-      totalFilterBtn = filterBtns.length,
-      portfolioItems = document.querySelectorAll(".portfolio-item"),
-      totalPortfolioItem = portfolioItems.length;
+  filterBtns = filterContainer.children,
+  totalFilterBtn = filterBtns.length,
+  portfolioItems = document.querySelectorAll(".portfolio-item"),
+  totalPortfolioItem = portfolioItems.length;
 
 
-      for (let i= 0; i<totalFilterBtn; i++){
-        filterBtns[i].addEventListener("click", function(){
-          filterContainer.querySelector(".active").classList.remove("active");
-          this.classList.add("active");
+for (let i = 0; i < totalFilterBtn; i++) {
+  filterBtns[i].addEventListener("click", function () {
+    filterContainer.querySelector(".active").classList.remove("active");
+    this.classList.add("active");
 
-          const filterValue = this.getAttribute("data-filter");
-          for(let k=0; k<totalPortfolioItem; k++){
-            if(filterValue === portfolioItems[k].getAttribute("data-category"))
-            {
-              portfolioItems[k].classList.remove("hide");
-              portfolioItems[k].classList.add("show");
-            }
-
-            else{
-              portfolioItems[k].classList.add("hide");
-              portfolioItems[k].classList.remove("show");
-            }
-            if(filterValue === "all"){
-              portfolioItems[k].classList.remove("hide");
-              portfolioItems[k].classList.add("show");
-            }
-          }
-        })
+    const filterValue = this.getAttribute("data-filter");
+    for (let k = 0; k < totalPortfolioItem; k++) {
+      if (filterValue === portfolioItems[k].getAttribute("data-category")) {
+        portfolioItems[k].classList.remove("hide");
+        portfolioItems[k].classList.add("show");
       }
 
+      else {
+        portfolioItems[k].classList.add("hide");
+        portfolioItems[k].classList.remove("show");
+      }
+      if (filterValue === "all") {
+        portfolioItems[k].classList.remove("hide");
+        portfolioItems[k].classList.add("show");
+      }
+    }
+  })
+}
 
-      
+
+
 /*=============== THEME/DISPLAY CUSTOMIZATION ===============*/
 const theme = document.querySelector("#theme-button");
 const themeModal = document.querySelector(".customize-theme");
@@ -195,6 +194,7 @@ fontSizes.forEach(size => {
     }
     //change font size of the root html element
     document.querySelector('html').style.fontSize = fontSize;
+    localStorage.setItem('fontSize', JSON.stringify(fontSize));
 
   })
 }
@@ -203,10 +203,16 @@ fontSizes.forEach(size => {
 /*===== PRIMARY COLORS =====*/
 //remove the active class from colors
 const changeActiveColorClass = () => {
-  colorPalette.forEach(colorPicker=>{
-  colorPicker.classList.remove('active');
+  colorPalette.forEach(colorPicker => {
+    colorPicker.classList.remove('active');
+  }
+  )
 }
-  )}
+
+
+
+
+
 colorPalette.forEach(color => {
   color.addEventListener('click', () => {
     let primaryHue;
@@ -228,10 +234,23 @@ colorPalette.forEach(color => {
       primaryHue = 202;
     }
     color.classList.add("active");
+
+    
+    // localStorage.classList.setItem('c-active',"active");
     root.style.setProperty('--primary-color-hue', primaryHue);
+    localStorage.setItem('--primary-color-hue', JSON.stringify(primaryHue));
+    // const ActiveElem = document.querySelectorAll(".active");
+    // // console.log(ActiveElem);
+    // var ActiveEle = {
+    //   "colorpallete": ActiveElem,
+    // }
+    // localStorage.setItem("ACTIVE" , JSON.stringify(ActiveEle));
 
   })
+
 })
+
+
 
 /*===== THEME BACKGROUNDS =====*/
 let lightColorLightness;
@@ -241,23 +260,31 @@ let darkColorLightness;
 
 //change background color
 
-const changeBG = ()=>{
+const changeBG = () => {
   root.style.setProperty('--light-color-lightness', lightColorLightness);
   root.style.setProperty('--white-color-lightness', whiteColorLightness);
   root.style.setProperty('--dark-color-lightness', darkColorLightness);
 
+  localStorage.setItem('--light-color-lightness', JSON.stringify(lightColorLightness));
+  localStorage.setItem('--white-color-lightness', JSON.stringify(whiteColorLightness));
+  localStorage.setItem('--dark-color-lightness', JSON.stringify(darkColorLightness));
 }
-Bg1.addEventListener('click', ()=>{
+Bg1.addEventListener('click', () => {
+  darkColorLightness = '17%';
+  whiteColorLightness = '100%';
+  lightColorLightness = '92%';
+
   //add active class
   Bg1.classList.add('active');
   //removeactive class from  the others
   Bg2.classList.remove('active');
   Bg3.classList.remove('active');
   //remove cutomized changes from local Storage
-  window.location.reload();
+  changeBG();
+  // window.location.reload();
 })
 
-Bg2.addEventListener('click', ()=>{
+Bg2.addEventListener('click', () => {
   darkColorLightness = '95%';
   whiteColorLightness = '20%';
   lightColorLightness = '15%';
@@ -271,7 +298,7 @@ Bg2.addEventListener('click', ()=>{
   changeBG();
 })
 
-Bg3.addEventListener('click', ()=>{
+Bg3.addEventListener('click', () => {
   darkColorLightness = '95%';
   whiteColorLightness = '10%';
   lightColorLightness = '0%';
@@ -284,3 +311,64 @@ Bg3.addEventListener('click', ()=>{
   Bg2.classList.remove('active');
   changeBG();
 })
+
+
+//getitemfrom Local Storage
+
+let cmColor = JSON.parse(localStorage.getItem("--primary-color-hue"));
+let FontSize = JSON.parse(localStorage.getItem("fontSize"));
+let lightColor = JSON.parse(localStorage.getItem("--light-color-lightness"));
+let whiteColor = JSON.parse(localStorage.getItem("--white-color-lightness"));
+let darkColor = JSON.parse(localStorage.getItem( "--dark-color-lightness"));
+
+//color palette
+if (cmColor ===  52){
+  root.style.setProperty("--primary-color-hue",52);
+}
+else if(cmColor === 152){
+  root.style.setProperty("--primary-color-hue",152);
+}
+else if(cmColor === 252)
+{
+  root.style.setProperty("--primary-color-hue",252);
+}
+else if(cmColor === 202)
+{
+  root.style.setProperty("--primary-color-hue",202);
+}
+else{
+  root.style.setProperty("--primary-color-hue",352);
+}
+
+//FontSize
+if (FontSize === "18px"){
+  root.style.setProperty("font-size","18px");
+}
+else if(FontSize === "16px"){
+  root.style.setProperty("font-size","16px");
+}
+else if(FontSize === "12px"){
+  root.style.setProperty("font-size","12px");
+}
+else{
+  root.style.setProperty("font-size","14px");
+}
+
+//Theme
+if (whiteColor === "20%"){
+  root.style.setProperty('--light-color-lightness', '15%');
+  root.style.setProperty('--white-color-lightness', '20%');
+  root.style.setProperty('--dark-color-lightness', '95%');
+}
+else if(whiteColor === "10%"){
+  root.style.setProperty('--light-color-lightness', '0%');
+  root.style.setProperty('--white-color-lightness', '10%');
+  root.style.setProperty('--dark-color-lightness', '95%');
+}
+else if(whiteColor === "100%"){
+  root.style.setProperty('--light-color-lightness', '92%');
+  root.style.setProperty('--white-color-lightness', '100%');
+  root.style.setProperty('--dark-color-lightness', '17%');
+}
+
+

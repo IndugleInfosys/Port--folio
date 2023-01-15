@@ -76,17 +76,20 @@
 
                 <div class="intro">
                     <!--avatar image-->
-                    <img src="assets/img/avatar-1.svg" alt="Anish">
+                    <a href="aboutme.html">
+                        <img src="assets/img/avatar-1.svg" alt="Anish"></a>
                     <!--info-->
                     <h1>Anish Shah</h1>
                     <span>I'm a <span class="info-text">Front-End developer</span></span>
                     <!---social icons-->
                     <ul class="social-icons">
-                        <li><a href="https://www.instagram.com/an.ish6743/"><i class="lni lni-instagram-original"></i></a></li>
+                        <li><a href="https://www.instagram.com/an.ish6743/"><i
+                                    class="lni lni-instagram-original"></i></a></li>
                         <li><a href="#"><i class="lni lni-twitter-original"></i></a></li>
                         <li><a href="https://github.com/anish9999"><i class="lni lni-github-original"></i></a></li>
                         <li><a href="#"><i class="lni lni-behance-original"></i></a></li>
-                        <li><a href="https://www.linkedin.com/in/anish-shah-0bb754227/"><i class="lni lni-linkedin-original"></i></a></li>
+                        <li><a href="https://www.linkedin.com/in/anish-shah-0bb754227/"><i
+                                    class="lni lni-linkedin-original"></i></a></li>
                     </ul>
                     <!--button-->
                     <div><a href="#" class="btn btn-default">Hire me</a></div>
@@ -241,7 +244,7 @@
         </section>
 
         <!--=============== Experience ===============-->
-       <section class="section" id="experience">
+        <section class="section" id="experience">
             <div class="container">
                 <!----section title-->
                 <h2 class="section-title padd-15">Experience</h2>
@@ -362,7 +365,7 @@
                     <!--prices----->
                     <div class="prices">
                         <div class="price-item">
-                            <img src="assets/img/price-1.svg" alt="" >
+                            <img src="assets/img/price-1.svg" alt="">
                             <h3 class="plan">Basic</h3>
                             <p>A simple option but powerful to manage your business</p>
                             <p>Email suppport</p>
@@ -415,7 +418,7 @@
                 </div>
                 <div class="row">
                     <!---portfolio -item-->
-                    <div class="portfolio-item padd-15" data-category = "android" >
+                    <div class="portfolio-item padd-15" data-category="android">
                         <div class="portfolio-item-inner">
                             <div class="portfolio-item-thumbnail">
                                 <img src="assets/img/1.svg" alt="">
@@ -431,7 +434,7 @@
 
 
                     <!---portfolio -item-->
-                    <div class="portfolio-item padd-15" data-category = "web">
+                    <div class="portfolio-item padd-15" data-category="web">
                         <div class="portfolio-item-inner">
                             <div class="portfolio-item-thumbnail">
                                 <img src="assets/img/2.svg" alt="">
@@ -447,7 +450,7 @@
 
 
                     <!---portfolio -item-->
-                    <div class="portfolio-item padd-15" data-category = "casestudy">
+                    <div class="portfolio-item padd-15" data-category="casestudy">
                         <div class="portfolio-item-inner">
                             <div class="portfolio-item-inner">
                                 <img src="assets/img/3.svg" alt="">
@@ -461,7 +464,7 @@
                     </div>
 
                     <!---portfolio -item-->
-                    <div class="portfolio-item padd-15" data-category = "ai">
+                    <div class="portfolio-item padd-15" data-category="ai">
                         <div class="portfolio-item-inner">
                             <div class="portfolio-item-thumbnail">
                                 <img src="assets/img/4.svg" alt="">
@@ -475,7 +478,7 @@
                     </div>
 
                     <!---portfolio -item-->
-                    <div class="portfolio-item padd-15" data-category = "casestudy">
+                    <div class="portfolio-item padd-15" data-category="casestudy">
                         <div class="portfolio-item-inner">
                             <div class="portfolio-item-thumbnail">
                                 <img src="assets/img/5.svg" alt="">
@@ -489,7 +492,7 @@
                     </div>
 
                     <!---portfolio -item-->
-                    <div class="portfolio-item padd-15" data-category = "ai">
+                    <div class="portfolio-item padd-15" data-category="ai">
                         <div class="portfolio-item-inner">
                             <div class="portfolio-item-thumbnail">
                                 <img src="assets/img/6.svg" alt="">
@@ -647,31 +650,31 @@
                         </div>
                     </div>
                     <!---contact form-->
-                    <form action="" class="contact-form padd-15">
+                    <form action="" class="contact-form padd-15" onsubmit="Mail(); reset(); return false;" >
                         <div class="contact-inputs">
                             <!-----contact content-->
                             <div class="contact-content">
-                                <input type="email" class="contact-input">
+                                <input type="email" class="contact-input" id="Email">
                                 <label for="" class="contact-label">Email</label>
                                 <span></span>
                             </div>
 
                             <!-----contact content-->
                             <div class="contact-content">
-                                <input type="text" class="contact-input">
+                                <input type="text" class="contact-input" id="Subject">
                                 <label for="" class="contact-label">Subject</label>
                                 <span></span>
                             </div>
 
                             <!-----contact content-->
-                            <div class="contact-content contact-area">
-                                <textarea name="" id="" cols="50" rows="10" class="contact-input"></textarea>
+                            <div class="contact-content contact-area" >
+                                <textarea name="" id="" cols="50" rows="10" class="contact-input" id="Message"></textarea>
                                 <label for="" class="contact-label">Message</label>
                                 <span></span>
                             </div>
 
                         </div>
-                        <a href="#" class="btn btn-default">Send Message</a>
+                        <button type="submit" class="btn btn-default" >Send Message</button>
                     </form>
 
                 </div>
@@ -696,17 +699,17 @@
             <!--font size-->
             <div class="font-size">
                 <h3>Font Size</h3>
-            <div>
-                <h6>Aa</h6>
-                <div class="choose-size">
-                    <span class="font-size-1"></span>
-                    <span class="font-size-2"></span>
-                    <span class="font-size-3 active"></span>
-                    <span class="font-size-4"></span>
-                    <!-- <span class="font-size-5"></span> -->
+                <div>
+                    <h6>Aa</h6>
+                    <div class="choose-size">
+                        <span class="font-size-1"></span>
+                        <span class="font-size-2"></span>
+                        <span class="font-size-3 active"></span>
+                        <span class="font-size-4"></span>
+                        <!-- <span class="font-size-5"></span> -->
+                    </div>
+                    <h3>Aa</h3>
                 </div>
-                <h3>Aa</h3>
-            </div>
             </div>
 
             <!---color-->
@@ -746,6 +749,28 @@
 
     <!--=============== JS ===============-->
     <script src="assets/js/main.js"></script>
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function Mail() {
+        let email = document.getElementById("Email").value;
+        let subject = document.getElementById("Subject").value;
+        let meSsage = document.getElementById("Message").value;
+        console.log(email);
+
+            Email.send({
+            Host: "smtp.elasticemail.com",
+            Username: "anishshah9876@gmail.com",
+            Password: "B8173B3C4737C9C23BC889F4A526FF773DB9",
+            To: "anishlegi7@gmail.com",
+            From: "anishshah9876@gmail.com",
+            Subject: "New Contact Form Enquiry",
+            Body: " User Email:"+ email + "<br/> Subject:" + subject + "<br/> Message:"  + meSsage, 
+            }).then(
+                message => alert(message)
+            );
+        }
+    </script>
 </body>
 
 </html>
