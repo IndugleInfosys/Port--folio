@@ -8,10 +8,63 @@
     <title>Glassmorphism Hover Effect</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href='assets/css/aboutme.css'>
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
-</head>
+     <!--=============== LINE ICONS ===============-->
+     <link rel="stylesheet" href="https://cdn.lineicons.com/3.0/lineicons.css">
 
-<body w3-include-html="index.html">
+     <!--=============== SWIPER CSS ===============-->
+     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+ 
+
+<body>
+    <!--=============== HEADER ===============-->
+    <header class="header" id="header">
+        <!--nav-->
+        <nav class="nav container padd-15">
+            <!--nav logo-->
+            <a href="#" class="nav-logo">
+                <h2>Anish</h2>
+            </a>
+
+            <!--nav menu-->
+            <div class="nav-menu" id="nav-menu">
+                <!--nav list-->
+                <!-- <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#experience" class="nav-link">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#pricing" class="nav-link">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#portfolio" class="nav-link">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link active-link">Contact</a>
+                    </li>
+                </ul> -->
+                <!---nav close-->
+                <div class="nav-close" id="nav-close">
+                    <i class="lni lni-close"></i>
+                </div>
+            </div>
+            <!--nav btns-->
+            <div class="nav-btns">
+                <!--theme change btn-->
+                <i class="lni lni-pallet change-theme" id="theme-button"></i>
+                <!--toggle button-->
+                <div class="nav-toggle" id="nav-toggle">
+                    <i class="lni lni-grid-alt"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
         <div class="card choose-color">
             <div class="lines"></div>
             <div class="imgBx">
@@ -36,9 +89,9 @@
         </div><!--card-->
 
         <section>
-            <div class="color"></div>
-            <div class="color"></div>
-            <div class="color"></div>
+            <div class="color1"></div>
+            <div class="color1"></div>
+            <div class="color1"></div>
 
             <ul>
                 <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -49,7 +102,64 @@
                 <li><a href="#"><i class="fa fa-github" aria-hidden="true"></i></a></li>
             </ul>
         </section>
-    <script src="assets/js/main.js"></script>
+    </main>
+    <!--=============== Theme Customize ===============-->
+    <div class="customize-theme">
+        <div class="card1">
+            <h2>Customize your view</h2>
+            <p>Manage your font size,color, and background</p>
+            <!--font size-->
+            <div class="font-size">
+                <h3>Font Size</h3>
+                <div>
+                    <h6>Aa</h6>
+                    <div class="choose-size">
+                        <span class="font-size-1"></span>
+                        <span class="font-size-2"></span>
+                        <span class="font-size-3 active"></span>
+                        <span class="font-size-4"></span>
+                        <!-- <span class="font-size-5"></span> -->
+                    </div>
+                    <h3>Aa</h3>
+                </div>
+            </div>
+
+            <!---color-->
+            <div class="color">
+                <h3>Color</h3>
+                <div class="choose-color">
+                    <span class="color-1"></span>
+                    <span class="color-2"></span>
+                    <span class="color-3 active"></span>
+                    <span class="color-4"></span>
+                    <span class="color-5"></span>
+                </div>
+            </div>
+            <!-----background-->
+            <div class="background">
+                <h3>Background</h3>
+                <div class="choose-bg">
+                    <div class="bg-1 active">
+                        <span></span>
+                        <h5 for="bg-1">Light</h5>
+                    </div>
+                    <div class="bg-2">
+                        <span></span>
+                        <h5 for="bg-2">Dim</h5>
+                    </div>
+                    <div class="bg-3">
+                        <span></span>
+                        <h5 for="bg-3">Dark</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/aboutus.js"></script>
+
+        <!-- Initialize Swiper -->
+    <!--=============== SWIPER JS ===============-->
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 </body>
 
