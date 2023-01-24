@@ -1,4 +1,3 @@
-
 const navMenu = document.getElementById("nav-menu"),
   navToggle = document.getElementById("nav-toggle"),
   navClose = document.getElementById("nav-close")
@@ -15,14 +14,12 @@ if (navToggle) {
 }
 
 
-
 /*============== MENU HIDDEN ===============*/
 if (navClose) {
   navClose.addEventListener('click', () => {
     navMenu.classList.remove("show-menu");
   })
 }
-
 
 /*=============== REMOVE MENU MOBILE ===============*/
 const navLinks = document.querySelectorAll(".nav-link")
@@ -34,116 +31,18 @@ function linkAction() {
 navLinks.forEach(n => n.addEventListener('click', linkAction))
 
 
-
-
-
-/*=============== CHANGE BACKGROUND HEADER ===============*/
-function scrollHeader() {
-  const header = document.getElementById("header")
-  //when he scroll is greater then 80 view port height, add the class scroll header to the tag header
-  if (this.scrollY >= 80) header.classList.add("scroll-header"); else header.classList.remove("scroll-header");
-}
-window.addEventListener("scroll", scrollHeader)
-
-
-
-
-
-/*=============== TESTIMONIAL SWIPER ===============*/
-var swiper = new Swiper(".testimonial-wrapper", {
-  spaceBetween: 30,
-  centeredSlides: true,
-  loop: "true",
-  autoplay: {
-    delay: 2500,
-    disableOnInteraction: false,
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-});
-
-
-/*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
-//get all sections that have an id defined
-const sections = document.querySelectorAll("section[id]");
-
-
-// add an event listener listening  for scrolling
-window.addEventListener("scroll", navHighlighter);
-
-
-function navHighlighter() {
-  //get current scroll position
-  let scrollY = window.pageYOffset;
-  //Now we loop through sections to get height, 
-  sections.forEach(current => {
-    const sectionHeight = current.offsetHeight;
-    const sectionTop = current.offsetTop - 58,
-      sectionId = current.getAttribute("id");
-
-    /* If our current scroll position enters the space where current section on screen is, add .active class to 
-    corresponding navigation link, else remove it
-    -to know which link needs an active class, we use  sectionId we are getting while looping  through  sections as an selection */
-    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-      document.querySelector('.nav-menu a[href*=' + sectionId + ']').classList.add("active-link");
-    }
-    else {
-      document.querySelector('.nav-menu a[href*=' + sectionId + ']').classList.remove("active-link");
-    }
-  })
-}
-
-
-/*=============== PORTFOLIO ITEM FILTER ===============*/
-const filterContainer = document.querySelector(".portfolio-filter-inner"),
-  filterBtns = filterContainer.children,
-  totalFilterBtn = filterBtns.length,
-  portfolioItems = document.querySelectorAll(".portfolio-item"),
-  totalPortfolioItem = portfolioItems.length;
-
-
-for (let i = 0; i < totalFilterBtn; i++) {
-  filterBtns[i].addEventListener("click", function () {
-    filterContainer.querySelector(".active").classList.remove("active");
-    this.classList.add("active");
-
-    const filterValue = this.getAttribute("data-filter");
-    for (let k = 0; k < totalPortfolioItem; k++) {
-      if (filterValue === portfolioItems[k].getAttribute("data-category")) {
-        portfolioItems[k].classList.remove("hide");
-        portfolioItems[k].classList.add("show");
-      }
-
-      else {
-        portfolioItems[k].classList.add("hide");
-        portfolioItems[k].classList.remove("show");
-      }
-      if (filterValue === "all") {
-        portfolioItems[k].classList.remove("hide");
-        portfolioItems[k].classList.add("show");
-      }
-    }
-  })
-}
-
-
+//aboutus js
+var root = document.querySelector(":root");
+// console.log(root);
 
 /*=============== THEME/DISPLAY CUSTOMIZATION ===============*/
 const theme = document.querySelector("#theme-button");
 const themeModal = document.querySelector(".customize-theme");
 const fontSizes = document.querySelectorAll('.choose-size span');
 const colorPalette = document.querySelectorAll(".choose-color span");
-var root = document.querySelector(":root");
 const Bg1 = document.querySelector(".bg-1");
 const Bg2 = document.querySelector(".bg-2");
 const Bg3 = document.querySelector(".bg-3");
-
 
 
 //open modal
@@ -312,9 +211,7 @@ Bg3.addEventListener('click', () => {
   changeBG();
 })
 
-
-//getitemfrom Local Storage
-
+//to change overall file theme
 let cmColor = JSON.parse(localStorage.getItem("--primary-color-hue"));
 let FontSize = JSON.parse(localStorage.getItem("fontSize"));
 let lightColor = JSON.parse(localStorage.getItem("--light-color-lightness"));
